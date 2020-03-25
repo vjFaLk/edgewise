@@ -28,7 +28,7 @@ def pytest_configure(config):
     # with conn.transaction():
     #     conn.execute(user_schema)
     #     print("Imported Schema")
-    import_module('edgewise')
+    import_module("edgewise")
     global class_registry
     class_registry = ClassRegistry(connection_object)
     # asyncio.run(create_company())

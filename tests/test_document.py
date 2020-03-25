@@ -28,4 +28,4 @@ async def test_DocumentNotInDatabase():
 async def test_Company():
     doc = edgewise.new_doc("Company")
     print(dir(doc))
-    assert hasattr(doc, 'your_class_method')
+    assert hasattr(doc, "your_class_method")

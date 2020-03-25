@@ -37,7 +37,9 @@ def register(class_definition: typing.Type[Any], *args, **kwargs):
 
 def register_with_schema(module: str):
     @wrapt.decorator
-    def wrapped_registration(class_definition: typing.Type[Any], instance: typing.Type[Any], *args, **kwargs):
+    def wrapped_registration(
+        class_definition: typing.Type[Any], instance: typing.Type[Any], *args, **kwargs
+    ):
         global class_registry
         print("REGISTER WITH SCHEMA " + class_definition.__name__)
         class_registry.merge_class(module, attrs(class_definition))
@@ -59,7 +61,9 @@ def register_scalar(scalar_definition: typing.Type[Any], *args, **kwargs):
 
 def register_scalar_with_schema(module: str):
     @wrapt.decorator
-    def wrapped_registration(scalar_definition: typing.Type[Any], instance: typing.Type[Any], *args, **kwargs):
+    def wrapped_registration(
+        scalar_definition: typing.Type[Any], instance: typing.Type[Any], *args, **kwargs
+    ):
         global class_registry
         print("MERGING SCALAR " + scalar_definition.__name__)
         class_registry.merge_custom_scalar(module, attrs(scalar_definition))
